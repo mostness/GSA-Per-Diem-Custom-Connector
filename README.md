@@ -142,7 +142,8 @@ Provide inputs:</p>
 </tbody>
 </table><p>For the specified zip code the results will contain an array of lodging per diem amounts and meal per diem amounts (as described in Basics).</p>
 <h2 id="lodging-rates-for-the-continental-u.s.-by-year">Lodging Rates for the Continental U.S. by Year</h2>
-<p>Provide inputs:</p>
+<p><img src="./images/connector.pd.ratesconusyear.png" alt="rates conus by year"><br>
+Provide inputs:</p>
 
 <table>
 <thead>
@@ -239,7 +240,8 @@ Provide inputs:</p>
 </tr>
 </tbody>
 </table><h2 id="mapping-of-destination-ids-to-zipcode-and-state-locations">Mapping of Destination-IDs to ZipCode and State locations</h2>
-<p>Provide input:</p>
+<p><img src="./images/connector.pd.didzipcodestate.png" alt="DID to zip code state"><br>
+Provide input:</p>
 
 <table>
 <thead>
