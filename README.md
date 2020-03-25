@@ -3,7 +3,7 @@
 
 ---
 
-<h1 id="gsa-sam-connector">GSA-SAM-Connector</h1>
+<h1 id="gsa-per-diem-connector">GSA-Per-Diem-Connector</h1>
 <p>Power Platform Custom Connector for the GSA Per Diem (<a href="https://open.gsa.gov/api/perdiem/">https://open.gsa.gov/api/perdiem/</a>). This is a Power Platform custom connector for interacting with the US Government’s General Servies Administration (GSA) Per Diem tables. This is a database of US Government allowed travel expenses and amounts, by location.<br>
 All amounts are in US Dollars.  All years are 4-digit years.  All status use standard 2-letter state codes.</p>
 <h1 id="api-key">API Key</h1>
@@ -83,7 +83,7 @@ For each city the API returns an <strong>array</strong> of months identified as:
 </table><h1 id="methods">Methods</h1>
 <p>This connector supports five methods:</p>
 <h2 id="rates-by-stateyear">Rates by state/year</h2>
-<p><img src="https://github.com/mostness/GSA-Per-Diem-Custom-Connector/blob/master/images/connector.pd.allcountycitystate.png" alt="get per diem rates for all counties cities, by state and year"><br>
+<p><img src="./images/connector.pd.allcountycitystate.png" alt="get per diem rates for all counties cities, by state and year"><br>
 Returns a list across an entire US state (using the 2-letter code) for a specified 4-digit year.  The API will return past (back to 2010) and future (as available) per diem amounts.</p>
 <p>For each available region (county/city) the results will contain an array of lodging per diem amounts and meal per diem amounts (as described in Basics).</p>
 <h2 id="rates-by-citystateyear">Rates by city/state/year</h2>
@@ -114,4 +114,6 @@ Returns a list across an entire US state (using the 2-letter code) for a specifi
 <td>2019</td>
 </tr>
 </tbody>
-</table>
+</table><p>For the specified city) the results will contain an array of lodging per diem amounts and meal per diem amounts (as described in Basics).</p>
+<h2 id="section"></h2>
+
