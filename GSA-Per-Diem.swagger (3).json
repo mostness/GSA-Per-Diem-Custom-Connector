@@ -1,0 +1,702 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "GSA Perdiem API",
+    "description": "Per Diem Rates are the allowed reimbursement rates for hotel stays and meals for federal travelers. Rates are set for each of the federal government's fiscal years (October 1st to September 30th) GSA is responsible for setting the rates in the continental United States. Many businesses and other organizations adopt these rates as well. This API provides access to the current rate information."
+  },
+  "host": "api.gsa.gov",
+  "basePath": "/travel/perdiem",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v2/rates/conus/lodging/{year}": {
+      "post": {
+        "summary": "Lodging Rates for the Continental U.S. by Year",
+        "description": "Lodging Rates for the Continental U.S. by Year",
+        "operationId": "LodgingRatesForTheContinentalU.s.ByYear",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Year",
+            "x-ms-summary": "4-digit year",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Jan": {
+                    "type": "string",
+                    "description": "Jan"
+                  },
+                  "Feb": {
+                    "type": "string",
+                    "description": "Feb"
+                  },
+                  "Mar": {
+                    "type": "string",
+                    "description": "Mar"
+                  },
+                  "Apr": {
+                    "type": "string",
+                    "description": "Apr"
+                  },
+                  "May": {
+                    "type": "string",
+                    "description": "May"
+                  },
+                  "Jun": {
+                    "type": "string",
+                    "description": "Jun"
+                  },
+                  "Jul": {
+                    "type": "string",
+                    "description": "Jul"
+                  },
+                  "Aug": {
+                    "type": "string",
+                    "description": "Aug"
+                  },
+                  "Sep": {
+                    "type": "string",
+                    "description": "Sep"
+                  },
+                  "Oct": {
+                    "type": "string",
+                    "description": "Oct"
+                  },
+                  "Nov": {
+                    "type": "string",
+                    "description": "Nov"
+                  },
+                  "Meals": {
+                    "type": "string",
+                    "description": "Meals"
+                  },
+                  "City": {
+                    "type": "string",
+                    "description": "City"
+                  },
+                  "State": {
+                    "type": "string",
+                    "description": "State"
+                  },
+                  "County": {
+                    "type": "string",
+                    "description": "County"
+                  },
+                  "DID": {
+                    "type": "string",
+                    "description": "DID"
+                  },
+                  "Dec": {
+                    "type": "string",
+                    "description": "Dec"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "403",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/v2/rates/conus/zipcodes/{year}": {
+      "get": {
+        "summary": "Mapping of Destination-IDs to ZipCode and State locations",
+        "description": "Mapping of Destination-IDs to ZipCode and State locations",
+        "operationId": "MappingOfDestination-idsToZipcodeAndStateLocations",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "type": "integer",
+            "required": true,
+            "description": "Year",
+            "format": "int32",
+            "x-ms-summary": "4-digit year"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Zip": {
+                    "type": "string",
+                    "description": "Zip"
+                  },
+                  "DID": {
+                    "type": "integer",
+                    "description": "DID",
+                    "title": "Destination ID",
+                    "format": "int32"
+                  },
+                  "ST": {
+                    "type": "string",
+                    "description": "State (2 digit code)",
+                    "title": "State"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "403",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/v2/rates/city/{city}/state/{state}/year/{year}": {
+      "get": {
+        "summary": "Get per diem rates by city, state and year",
+        "description": "Get per diem rates by city, state and year",
+        "operationId": "GetPerdiemRatesByCity_state_year",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "City",
+            "x-ms-summary": "City"
+          },
+          {
+            "name": "state",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "State",
+            "x-ms-summary": "2-letter state code"
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Year",
+            "x-ms-summary": "4-digit year"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "request": {
+                  "type": "string",
+                  "description": "request",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                },
+                "errors": {
+                  "type": "string",
+                  "description": "errors",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                },
+                "rates": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "oconusInfo": {
+                        "type": "string",
+                        "description": "oconusInfo",
+                        "title": "OCONUS Info"
+                      },
+                      "rate": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "months": {
+                              "type": "object",
+                              "properties": {
+                                "month": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "value": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "value"
+                                      },
+                                      "number": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "number"
+                                      },
+                                      "short": {
+                                        "type": "string",
+                                        "description": "short"
+                                      },
+                                      "long": {
+                                        "type": "string",
+                                        "description": "long"
+                                      }
+                                    }
+                                  },
+                                  "description": "month"
+                                }
+                              },
+                              "description": "months"
+                            },
+                            "meals": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "meals"
+                            },
+                            "zip": {
+                              "type": "string",
+                              "description": "zip"
+                            },
+                            "county": {
+                              "type": "string",
+                              "description": "county"
+                            },
+                            "city": {
+                              "type": "string",
+                              "description": "city"
+                            },
+                            "standardRate": {
+                              "type": "string",
+                              "description": "standardRate"
+                            }
+                          }
+                        },
+                        "description": "rate"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "State (2 digit code)",
+                        "title": "State"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "4 digit year",
+                        "title": "Year"
+                      },
+                      "isOconus": {
+                        "type": "string",
+                        "description": "isOconus",
+                        "title": "Is OCONUS",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      }
+                    }
+                  },
+                  "description": "rates"
+                },
+                "version": {
+                  "type": "string",
+                  "description": "version",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "403",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/v2/rates/state/{state}/year/{year}": {
+      "get": {
+        "summary": "Get perdiem rates for all counties and cities, by state and year",
+        "description": "Get perdiem rates for all counties and cities, by state and year",
+        "operationId": "GetPerdiemRatesForAllCounties_citiesByStateAndYear",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "State",
+            "x-ms-summary": "2-letter state code"
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Year",
+            "x-ms-summary": "4-digit year"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "request": {
+                  "type": "string",
+                  "description": "request",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                },
+                "errors": {
+                  "type": "string",
+                  "description": "errors",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                },
+                "rates": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "oconusInfo": {
+                        "type": "string",
+                        "description": "oconusInfo",
+                        "title": "OCONUS Info"
+                      },
+                      "rate": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "months": {
+                              "type": "object",
+                              "properties": {
+                                "month": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "value": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "value"
+                                      },
+                                      "number": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "number"
+                                      },
+                                      "short": {
+                                        "type": "string",
+                                        "description": "short"
+                                      },
+                                      "long": {
+                                        "type": "string",
+                                        "description": "long"
+                                      }
+                                    }
+                                  },
+                                  "description": "month"
+                                }
+                              },
+                              "description": "months"
+                            },
+                            "meals": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "meals"
+                            },
+                            "zip": {
+                              "type": "string",
+                              "description": "zip"
+                            },
+                            "county": {
+                              "type": "string",
+                              "description": "county"
+                            },
+                            "city": {
+                              "type": "string",
+                              "description": "city"
+                            },
+                            "standardRate": {
+                              "type": "string",
+                              "description": "standardRate"
+                            }
+                          }
+                        },
+                        "description": "rate"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "2 leter state code",
+                        "title": "State"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "4-digit year",
+                        "title": "Year"
+                      },
+                      "isOconus": {
+                        "type": "string",
+                        "description": "isOconus",
+                        "title": "Is OCONUS",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      }
+                    }
+                  },
+                  "description": "rates"
+                },
+                "version": {
+                  "type": "string",
+                  "description": "version",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "403",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/v2/rates/zip/{zip}/year/{year}": {
+      "get": {
+        "summary": "Get perdiem rates by ZipCode and year",
+        "description": "Get perdiem rates by ZipCode and year",
+        "operationId": "GetPerdiemRatesByZipcodeAndYear",
+        "parameters": [
+          {
+            "name": "zip",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Zip",
+            "x-ms-summary": "Zip Code"
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Year",
+            "x-ms-summary": "4 digit year"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "request": {
+                  "type": "string",
+                  "description": "request",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                },
+                "errors": {
+                  "type": "string",
+                  "description": "errors",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                },
+                "rates": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "oconusInfo": {
+                        "type": "string",
+                        "description": "oconusInfo",
+                        "title": "OCONUS Info"
+                      },
+                      "rate": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "months": {
+                              "type": "object",
+                              "properties": {
+                                "month": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "value": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "value"
+                                      },
+                                      "number": {
+                                        "type": "integer",
+                                        "format": "int32",
+                                        "description": "number"
+                                      },
+                                      "short": {
+                                        "type": "string",
+                                        "description": "short"
+                                      },
+                                      "long": {
+                                        "type": "string",
+                                        "description": "long"
+                                      }
+                                    }
+                                  },
+                                  "description": "month"
+                                }
+                              },
+                              "description": "months"
+                            },
+                            "meals": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "meals"
+                            },
+                            "zip": {
+                              "type": "string",
+                              "description": "zip"
+                            },
+                            "county": {
+                              "type": "string",
+                              "description": "county"
+                            },
+                            "city": {
+                              "type": "string",
+                              "description": "city"
+                            },
+                            "standardRate": {
+                              "type": "string",
+                              "description": "standardRate"
+                            }
+                          }
+                        },
+                        "description": "rate"
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "2-letter state code",
+                        "title": "State"
+                      },
+                      "year": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "4-digit year",
+                        "title": "Year"
+                      },
+                      "isOconus": {
+                        "type": "string",
+                        "description": "isOconus",
+                        "title": "Is OCONUS",
+                        "enum": [
+                          "",
+                          "true",
+                          "false"
+                        ]
+                      }
+                    }
+                  },
+                  "description": "rates"
+                },
+                "version": {
+                  "type": "string",
+                  "description": "version",
+                  "title": "",
+                  "x-ms-visibility": "internal"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "403",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/v2/rates/conus/lodging/:year": {}
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "API Key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-api-key"
+    }
+  },
+  "security": [
+    {
+      "API Key": []
+    }
+  ],
+  "tags": []
+}
