@@ -5,7 +5,9 @@
 
 <h1 id="gsa-per-diem-connector">GSA-Per-Diem-Connector</h1>
 <p>Power Platform Custom Connector for the GSA Per Diem (<a href="https://open.gsa.gov/api/perdiem/">https://open.gsa.gov/api/perdiem/</a>). This is a Power Platform custom connector for interacting with the US Government’s General Servies Administration (GSA) Per Diem tables. This is a database of US Government allowed travel expenses and amounts, by location.<br>
-All amounts are in US Dollars.  All years are 4-digit years and correspond to the US government’s fiscal year.  All status use standard 2-letter state codes.</p>
+All amounts are in US Dollars.  All years are 4-digit years and correspond to the US government’s fiscal year.  All status use standard 2-letter state codes.<br>
+For an example of how to deploy a custom connector such as this one, see this video:<br>
+<a href="http://www.youtube.com/watch?v=XrWcPgEtxdo" title="Deploying A Custom Connector"><img src="http://img.youtube.com/vi/XrWcPgEtxdo/0.jpg" alt="Deploying A Custom Connector"></a></p>
 <h1 id="api-key">API Key</h1>
 <p>All calls to the GSA SAM API require an API key.  The process for betting that API is described on the GSA API site here: <a href="https://open.gsa.gov/api/perdiem/">https://open.gsa.gov/api/perdiem/</a><br>
 This will provide an API key that you will need to create a connection with this custom connector.  These API keys are shared across GSA APIs.  If you have created an API key for a different GSA API, it should work for this use too.</p>
